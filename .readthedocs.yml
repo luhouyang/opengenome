@@ -16,8 +16,6 @@ python:
     - method: pip
       path: .
 
-  use_system_site_packages: false
-
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
   configuration: docs/conf.py
