@@ -5,7 +5,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='opengenome',
-    version='0.1.0',
+    version='0.1.1',
     long_description=description,
     long_description_content_type="text/markdown",
     packages=find_namespace_packages(where="src"),
@@ -15,7 +15,7 @@ setup(
     package_data={"": ["*.yaml"]},
     entry_points={
         "console_scripts": [
-            "opengenome-welcome = opengenome:welcome",
+            "opengenome-about = opengenome:about",
         ],
     },
     extras_require={

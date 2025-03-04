@@ -17,13 +17,13 @@ Test `opengenome` by trying the welcome function:
 ```python
 import opengenome
 
-opengenome.welcome()
+opengenome.about()
 ```
 
 or
 
 ```bash
-$ opengenome-welcome
+$ opengenome-hello
 ```
 
 ## Contributing

@@ -1,6 +1,6 @@
 import pytest
 
-from opengenome.welcome import welcome
+from opengenome.welcome import about
 
 
 @pytest.fixture
@@ -9,4 +9,4 @@ def welcome_val():
 
 
 def test_welcome(welcome_val):
-    assert welcome_val == welcome(), "Welcome did not return 1"
+    assert welcome_val == about(), "Welcome did not return 1"
