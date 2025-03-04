@@ -1,0 +1,3 @@
+myst-nb
+sphinx-autoapi
+pydata_sphinx_theme
