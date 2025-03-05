@@ -1,4 +1,4 @@
-def about():
+def about() -> int:
     """Prints a welcome message
     
     Welcome to Open-Genome Toolkit (OGT). Toolkit and data preparation pipeline for the Open-Genome Project.
