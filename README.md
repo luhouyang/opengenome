@@ -15,9 +15,9 @@ $ pip install opengenome
 Test `opengenome` by trying the welcome function:
 
 ```python
-import opengenome
+import opengenome as og
 
-opengenome.about()
+og.about()
 ```
 
 or

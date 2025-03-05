@@ -58,6 +58,27 @@ Ready to contribute? Here's how to set up `opengenome` for local development.
     $ pip install -e .[dev]
     ```
 
+1. Remember to use `Mypy Type Checker` extension for VS Code. Add configuration to `settings.json`
+
+    ```console
+    {
+        ...
+        "mypy-type-checker.args": [
+            "--ignore-missing-imports",
+            "--follow-imports=silent",
+            "--show-column-numbers",
+            "--strict"
+            ],
+        ...
+    }
+    ```
+
+    For other IDE run `mypy` with the following flags:
+
+    ```console
+    $ mypy yourscript.py --ignore-missing-imports --follow-imports=silent --show-column-numbers --strict
+    ```
+
 1. Use `git` (or similar) to create a branch for local development and make your changes:
 
     ```console
@@ -70,7 +91,25 @@ Ready to contribute? Here's how to set up `opengenome` for local development.
     $ pytest tests/ --cov=opengenome
     ```
 
+1. To test locally build the `sdits` and `wheel` with:
+
+    ```console
+    $ python setup.py sdist bdist_wheel
+    ```
+
 1. Commit your changes and open a pull request.
+
+## Sphinx Generated HTML
+
+1. Look at your documentation HTML locally
+
+    ```console
+    $ cd docs
+    $ make clean
+    $ make html
+    ```
+
+    generated files can be found in `docs/_build/html`
 
 ## Pull Request Guidelines
 
