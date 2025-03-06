@@ -36,4 +36,16 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## License
 
-`opengenome` was created by Lu Hou Yang. It is licensed under the terms of the GNU General Public License v3.0 license.
+`opengenome` was created by Open-Genome Project Group:
+
+It is licensed under the terms of the GNU General Public License v3.0 license.
+
+## Contibutors
+
+In alphabetical order:
+
+- Anson Cheng Jian Shiun
+
+- Lim Jia Chyuen
+
+- Lu Hou Yang
