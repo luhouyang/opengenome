@@ -48,6 +48,7 @@ Ready to contribute? Here's how to set up `opengenome` for local development.
     $ conda create -n opengenome python=3.12
     $ conda activate opengenome
     $ python -m pip install --upgrade pip
+    $ git clone --depth 1 https://github.com/luhouyang/opengenome.git
     $ cd PATH/opengenome
     ```
 

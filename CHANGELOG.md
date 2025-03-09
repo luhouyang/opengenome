@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.4 (07/03/2025)
+
+- First testing function in `opengenome.outputs.cnn.viz`
+
 ## v0.1.3 (07/03/2025)
 
 - Type safety with `mypy`
