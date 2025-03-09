@@ -1,0 +1,58 @@
+html[data-theme="dark"] {
+  /*****************************************************************************
+    * main colors
+    */
+  --pst-color-primary: rgb(194, 255, 255);
+  --pst-color-secondary: rgb(0, 238, 126);
+  --pst-color-success: rgb(255, 255, 153);
+  --pst-color-info: var(--pst-color-primary);
+  --pst-color-warning: var(--pst-color-secondary);
+  --pst-color-danger: rgb(237, 41, 41);
+  --pst-color-text-base: rgb(201, 209, 217);
+  --pst-color-text-muted: rgb(192, 192, 192);
+  --pst-color-border: rgb(192, 192, 192);
+  --pst-color-shadow: var(--pst-color-background);
+
+  /*****************************************************************************
+    * depth colors
+    *
+    * background: the more in depth color
+    * on-background: the object directly set on the background, use of a light grey in dark theme
+    * surface: object set on the background (without shadows)
+    * on_surface: object set on surface object (without shadows)
+    */
+  --pst-color-background: rgb(4, 4, 4);
+  --pst-color-on-background: rgb(64, 64, 64);
+  --pst-color-surface: rgb(34, 34, 34);
+  --pst-color-on-surface: rgb(52, 52, 52);
+
+  /*****************************************************************************
+    * extentions
+    */
+
+  --pst-color-panel-background: var(--pst-color-background-up);
+
+  /*****************************************************************************
+    * layout
+    */
+
+  /* links */
+  --pst-color-link: var(--pst-color-primary);
+  --pst-color-link-hover: var(--pst-color-secondary);
+
+  /* inline code */
+  --pst-color-inline-code: rgb(255, 255, 153);
+
+  /* targeted content */
+  --pst-color-target: rgb(100, 55, 0);
+
+  /* hide any content that should not be displayed in the dark theme */
+  .only-light {
+    display: none !important;
+  }
+
+  /* specific brightness applied on images */
+  img {
+    filter: brightness(0.8) contrast(1.2);
+  }
+}
