@@ -1,4 +1,5 @@
 import os
+from typing import List, Any
 
 import torch
 import torchvision.transforms as transforms
@@ -8,7 +9,13 @@ import PIL.Image as Image
 import matplotlib.pyplot as plt
 
 
-def viz(layer_num, img_path, model, device):
+def viz(
+    layer_num: int,
+    img_path: str,
+    model: Any,
+    classes: List[str | int | float],
+    device: str,
+) -> None:
     """Display a visualization of CNN feature map
 
     Display convolutional neural network CNN feature maps of specified ``layer`` given ``image path`` and ``model``.
@@ -30,10 +37,12 @@ def viz(layer_num, img_path, model, device):
     >>> import torch
     >>> from torchvision.models import vgg16, VGG16_Weights
     >>> DEVICE = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+    >>> with open("VGG16_CLASSES.txt", 'r') as f:
+    >>>    classes = f.readlines()
     >>> model = vgg16(weights=VGG16_Weights.DEFAULT)
     >>> model = model.to(DEVICE)
     >>> img_car = r"PATH_TO_IMAGE"
-    >>> viz(10, img_car, model, DEVICE) 
+    >>> viz(10, img_car, model, classes, DEVICE) 
     """
     # transforms_vgg16 = VGG16_Weights.IMAGENET1K_V1.transforms
     transforms_vgg16 = transforms.Compose([
@@ -46,9 +55,9 @@ def viz(layer_num, img_path, model, device):
 
     summary(model=model, input_size=(1, 3, 224, 224))
 
-    img_path = Image.open(img_path).convert('RGB')
-    img_path = transforms_vgg16(img_path).unsqueeze(dim=0)
-    img_path = img_path.to(device)
+    img = Image.open(img_path).convert('RGB')
+    img_trans = transforms_vgg16(img).unsqueeze(dim=0)
+    img_trans = img_trans.to(device)
 
     layer = model.features[layer_num]
     print(layer)
@@ -56,7 +65,7 @@ def viz(layer_num, img_path, model, device):
     # define hook to return output feature map at layer n
     feature_maps = []
 
-    def hook_fn(module, input, output):
+    def hook_fn(module: Any, input: Any, output: Any) -> None:
         feature_maps.append(output)
 
     # register the hook
@@ -64,15 +73,10 @@ def viz(layer_num, img_path, model, device):
 
     model.eval()
     with torch.inference_mode():
-        preds = model(img_path)
+        preds = model(img_trans)
 
     pred_cls = preds.argmax(dim=1)
-    classes_imgnet_txt = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "..", "data",
-                     "VGG16_CLASSES.txt"))
-    with open(classes_imgnet_txt, 'r') as f:
-        classes_imgnet = f.readlines()
-    pred_cls = classes_imgnet[pred_cls]
+    pred_cls = classes[pred_cls]
     print(pred_cls)
 
     layer_output = feature_maps[0].squeeze()
