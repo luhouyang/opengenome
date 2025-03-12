@@ -21,6 +21,7 @@ setup(
         "torch>=2",
         "matplotlib>=3",
         "torchinfo>=1.8",
+        "pillow>=11",
     ],
     include_package_data=True,
     entry_points={
