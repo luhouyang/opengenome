@@ -22,6 +22,8 @@ setup(
         "matplotlib>=3",
         "torchinfo>=1.8",
         "pillow>=11",
+        "torchvision",
+        "torchaudio",
     ],
     include_package_data=True,
     entry_points={
